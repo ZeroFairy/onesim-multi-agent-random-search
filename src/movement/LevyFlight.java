@@ -7,7 +7,7 @@ import core.Settings;
  * Create path that were according to a human movement.
  * Where there are more short length path, then long length path.
  */
-public class LevyWalk extends MovementModel {
+public class LevyFlight extends MovementModel {
 	/** how many waypoints should there be per path */
 	private static final int PATH_LENGTH = 1;
 	private Coord lastWaypoint;
@@ -25,7 +25,7 @@ public class LevyWalk extends MovementModel {
 	private double xm, alpha;
 
 
-	public LevyWalk(Settings settings) {
+	public LevyFlight(Settings settings) {
 		super(settings);
 		if (settings.contains(ALPHA)) {
 			this.alpha = settings.getDouble(ALPHA);
@@ -40,7 +40,7 @@ public class LevyWalk extends MovementModel {
 		};
 	}
 
-	protected LevyWalk(LevyWalk rwp) {
+	protected LevyFlight(LevyFlight rwp) {
 		super(rwp);
 		this.xm = rwp.xm;
 		this.alpha = rwp.alpha;
@@ -74,8 +74,8 @@ public class LevyWalk extends MovementModel {
 	}
 	
 	@Override
-	public LevyWalk replicate() {
-		return new LevyWalk(this);
+	public LevyFlight replicate() {
+		return new LevyFlight(this);
 	}
 
 	protected Coord randomCoord() {
